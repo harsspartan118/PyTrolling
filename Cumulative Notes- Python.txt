@@ -1,0 +1,543 @@
+1. About Python-
+		Python is a general purpose programming language like Java or C.
+		It is open source.
+			
+		Python comes in two versions- Python 2.7 and Python 3.x
+		These versions are not directly compatible.
+		Python 2.7 is only used to work with legacy programs.
+		Python 3.x is being actively developed and improved. It is used in all new programs.
+		We will use Python 3 in this class.
+		
+2. Benefits of Python-
+		Multi paradigm-
+			Python supports procedural programming (like C)
+			It supports OOP (like Java)
+			It also supports functional programming directly.
+				
+			Python programs can be used as executables and also as scripts.
+			Scripting is very useful to integrate different software systems or languages.
+			
+		Wide applications-
+			Python is used in web development, in embedded systems, in desktop applications and
+			in scientific computing.
+				
+			Python has a large number of libraries that support its use in almost any environment.
+			
+		Concise-
+			Python reduces the amount of code you'll need to write to perform most tasks.
+			
+		Standard syntax-
+			The coding standards are a part of Python syntax.
+			This helps maintain a single standard.
+		
+3. Shell and file environments-
+		There are two ways to run a Python program.
+			
+		(a)	First is to write the code in a file with the extension .py
+			The file can then be executed by invoking the interpreter as follows-
+			Inside the command prompt / terminal-
+				python <file name>.py
+					
+			Inside the power shell-
+				python .\<file name>.py
+					
+		(b)	The second way is to start the Python shell and execute the code line-by-line.
+			Inside the command prompt / power shell / terminal-
+				python
+				>>> <write code here>
+					
+4.	Print function-
+		When you work inside the shell, Python will automatically echo (print) the results.
+		When you write code in a file, you must explicitly call the prinf function.
+		For example-
+			print("Hello world")
+			print(str(123))							# Must type cast to string before printing
+	
+		The print function supports Java style string concatenation.
+		For example-
+			print("This is a " + "string.")
+			
+		The print function also supports C style formatting using %.
+		For example-
+			print("Python is %d years old and it was developed by %s." % (27, "Van Rossum"))
+	
+5.	Operators-
+		Python uses the same arithemetic and comparision operators as Java.
+		Python doesn't include the ++ and -- operators.
+		
+		The new operators include-
+		Operator___|__Name___________|__Example___|__Result
+			**			|	Power					|	2 ** 3			|	8
+			//				|	Floor division	|	5 // 2			|	2
+			/				|	True division		|	5 / 2				|	2.5
+				
+		Booleans in Python are (capitals are important)-
+			True
+			False
+				
+		Logical operators are words-
+			Operator___|__Example__________|__Result
+				and			|	True and False		|	False
+				or			|	True or False			|	True
+				not			|	not True					|	False
+		
+6.	Variables-
+		Python variables are simple references that don't carry any type information.
+		For example-
+			var1 = 10
+			var2 = 'A'
+			
+		This works because, in Python, everything is an object - including the values 10 and 'A'.
+		All objects are responsible for keeping their type information.
+		Therefore, references don't have to know the type of their data.
+		This also means that we can assign variables to values of different types later on.
+		For example-
+			var1 = 10
+			var1 = 'A'
+			var1 = 2.5
+				
+		Because of this property, we say that Python is dynamically typed.
+			
+7.	Data types-
+		(a)	Numbers and Strings-
+			These are immutable types.
+			I.e. their values cannot be changed without creating a new object.
+			
+			Strings can be represented by double quotes or by single quotes.
+			For example-
+				"A String"
+				'Also a string'
+				
+		(b)	Lists-
+			This is like a dynamic array. New elements can be added and deleted anytime.
+			For example-
+				list1 = []					# Empty list
+				list1.append(1)
+				list1.append(2)
+				print(list1)
+					
+			Lists are ordered. All elements are indexed from 0.
+			For example-
+				list1[0]					# Returns 1
+					
+			Lists are mutable. They can be modified without creating a new object.
+			For example-
+				list1[0] = 10
+				
+			Lists can have elements of any type-
+			For example-
+				list2 = [1, 2, "Python", 2.5]
+
+		(c)	Tuples-
+			This is like a static array.
+			It is also ordered like a list.
+			But tuples are immutable. We cannot change any element of the tuple directly.
+			They can store elements of any type.
+			For example-
+				tup1 = (1, 2, 3, 'A', 'B')
+				
+		(e)	Dictionaries-
+			These are associations of key-value pairs.
+			For example-
+				dict1 = {1 : 10, 2 : 20}
+				
+				Here 1 and 2 are keys.
+				10 and 20 are the respective values.
+				
+			Dictionaries are dynamic. Key-value pairs can be added or removed.
+			They are mutable.
+			They are not ordered. I.e. they don't have any numeric indexing.
+			Element values are accessed by key.
+			For example-
+				dict1[1]					#	Returns 10
+				
+			Values can be of any type. But keys must only be of immutable types.
+			For example-
+				dict2 = {"Name" : "Python", 20 : [1, 2, 3], (1, 2) : 2.5}
+				
+		(f)	Sets-
+			Sets are like lists. Except they can only contain unique values.
+			For example-
+				set1 = {"Python", 1, 2, 3}
+				
+			Also, unlike lists, sets are not ordered. I.e values cannot be indexed.
+	
+8.	Sequences and operations-
+		Strings, lists and tuples are all sequences.
+		They all support some basic sequence operations.
+		
+		(a)	Arithmetic-
+			For example-
+				[1, 2, 3] + [10, 20, 30]				#	Result-	[1, 2, 3, 10, 20, 30]
+				"Mickey" + "Mouse"					#	Result-	"MickeyMouse"
+				
+				[1, 2] * 3										#	Result-	[1, 2, 1, 2, 1, 2]
+				"AB" * 3										#	Result-	"ABABAB"
+				
+		(b)	Indexing-
+			For example-
+				"Mickey"[2]								#	Result-	"c"
+				
+		(c)	Slicing-
+			Slicing allows us to select a range of index.
+			Syntax follows as-
+				sequence[start : stop : step]			#	start is included, stop is excluded
+			
+			For example-
+				"Mickey"[0 : 2]							#	Result-	"Mi"
+				"Mickey"[3 : ]								#	Result-	"key"
+				"Mickey"[ : 3]								#	Result-	"Mic"
+				"Mickey"[0 : 5 : 2]						#	Result-	"Mce"
+				"Mickey"[0 : : 2]						#	Result-	"Mce"
+				"Mickey"[0 : -1]							#	Result-	"Micke"
+		
+		(d)	Common methods-
+			.index(value)
+			For example-
+				"Mickey".index("k")					#	Result-	3
+				
+			.count(value)
+			For example-
+				"Mickey Mouse".count("M")	#	Result-	2
+				
+		(e)	Built-in functions-
+			len(sequence)
+			For example-
+				len("Mickey")							#	Result-	6
+			
+			sorted(sequence)			# Returns a list.
+			For example-
+				sorted("Mickey")						#	Result-	['M', 'c', 'e', 'i', 'k', 'y']
+	
+9.	List operations-
+		.append(value)					# Insert at end of list
+		.pop(index)
+		.insert(index, value)
+		.remove(value)					# Removes the first occurrence
+		.extend(list of values)
+		
+10. String operations-
+		.upper()							.lower()
+		.startswith(value)			.endswith(value)
+		.find(value)						# Returns index of the first occurrence
+		.replace(old, new)			# First occurrence
+		.isalpha()						 .isnumeric()					 .isalnum()
+		.split(symbol)
+		<symbol>.join(list of strings)
+		
+11. Dictionary operations-
+		Element values are accessed by key.
+			For example-
+				dict1[1]					#	Returns 10
+				
+		.update(dict2)					# Merge dictionaries and overwrite values
+		.pop(key)
+		For example-
+			dict1 = {1 : 10, 2 : 20}
+			dict2 = {1 : 100, 3 : 300}
+			dict1.update(dict2)
+			print(dict1)				#	Result- {1: 100, 2: 20, 3: 300}
+		
+12. Type casting-
+		Python is a strongly typed language like Java.
+		We must explicitly type cast when converting data types.
+		
+		Type casting in Python is done by using the following built-in functions-
+			int, float, bool, str, list, tuple, dict, set
+			chr(int), ord(char)
+			
+		For example-
+			x = int("123")				#	Result- 123
+			s = str(123)				#	Result- "123"
+			l = list("ABC")				#	Result- ['A', 'B', 'C']
+		
+13. Dictionary type conversions-
+		(a)	Converting from dictionary to list-
+			Use the following dictionary methods to get lists-
+				.keys()
+				.values()
+				.items()
+				
+			For example-
+				dict1 = {1 : 10, 2 : 20}
+				dict1.keys()			#	Result- [1, 2]
+				dict1.values()		#	Result- [10, 20]
+				dict1.items()			#	Result- [(1, 10), (2, 20)]
+		
+		(b)	Converting from list to dictionary-
+			Two ways exist-
+				dict(list of tuples)
+				dict(zip(keys, values))
+				
+				For example-
+					list1 = [(1, 10), (2, 20)]
+					dict1 = dict(list1)
+					
+					keyList = [1, 2]
+					valList = [10, 20]
+					dict2 = dict(zip(keyList, valList))
+				
+14. Statements and expressions-
+		(a)	Positional assignments-
+			The following are possible because the interpreter treats them as tuples.
+				a, b = 1, 2
+				a, b = 'AB'
+				a, b = b, a
+				a, *b = 'stuff'			#	Same as-	a = 's';		b = 'tuff'
+				a, *b, c = 'stuff'		#	Same as-	a = 's';		b = 'tuf';		c = 'f'
+			
+		(b)	Conditionals-
+			The following operators are useful in conditional statements-
+			Operator___|__Name_______________________|__Example___|__Result
+				==			|	Compare value						|	1 == True	|	True
+				is				|	Compare memory address	|	1 is True		|	False
+				in				|	Check membership				|	1 in [1,2,3]	|	True
+
+			if condition1 :
+				block1
+			elif condition2 :
+				block2
+			else :
+				block3
+				
+			In Python, the level of indentation (spacing) defines the lines in a block.
+			I.e. all code lines within block1 must have the same indentation.
+			For example-
+				if 1 != True :
+					print("Value of 1 is not true")
+				elif 1 is True :
+					print("1 is true")
+				else :
+					print("None of the above")
+
+		(c)	Loops-
+			Python
+			The range() function is very useful in Python loops.
+			Its syntax is as follows-
+				range(start, stop, step)			#	start is included, stop is excluded
+				
+				For example-
+					list(range(5))					#	Result-	[0, 1, 2, 3, 4]
+					list(range(1, 5))				#	Result-	[1, 2, 3, 4]
+					list(range(0, 10, 2))		#	Result-	[0, 2, 4, 6, 8]
+		
+			while condition1 :
+				block1
+			
+				For example-
+					x = 0
+					while x < 10 :
+						print(str(x))
+						x += 1
+			
+			for variable in iterable : 
+				block1
+				
+				For example-
+					for x in "Mickey" :
+						print(x)
+			
+			for variable in range(...) :
+				block1
+				
+				For example-
+					for x in range(10) :
+						print(str(x))
+			
+15. Exception handling-
+		try :
+			block1
+		except <error> as e :			# Similar to Java- catch(<Exception> e)
+			block2
+		except :									# Similar to Java- catch(Exception e)
+			block3
+		finally :
+			block4
+			
+		For example-
+			try :
+				int("A String")
+			except ValueError as ve :
+				print("Error while casting. Message: " + str(ve))
+					
+16. Comprehension expressions-
+		Comprehensions can generate data objects by using in-line loops.
+		They work for lists, dictionaries and sets.
+		
+		For example-
+			list1 = [x for x in range(5)]
+			#	Result-	[0, 1, 2, 3, 4]
+			
+			list2 = [(x, y) for x in range(3) for y in range(2)]		# y loop nested with x loop.
+			#	Result-	[(0, 0), (0, 1), (1, 0), (1, 1), (2, 0), (2, 1)]
+			
+			list3 = [x for x in range(10) if x % 3 == 0]					# if nested inside loop.
+			#	Result-	[0, 3, 6, 9]
+			
+			set1 = {x for x in range(5)}
+			#	Result-	{0, 1, 2, 3, 4}
+			
+			dict1 = {x : y for (x, y) in zip([1, 2, 3], [10, 20, 30])}
+			#	Result-	{1 : 10, 2 : 20, 3 : 30}
+			
+17. Functions-
+		def name(params) :
+			...
+			return ...
+			
+		For example-
+			def add(x, y) :
+				return x + y
+			
+			add(10, 20)						#	Result-	30
+			
+		Python files are interpreted sequentially.
+		This means that functions should be defined before they are called.
+
+		The 'def' keyword generates a function object
+		It then assigns object to a reference provided by the function name.
+		This means that a function can be assigned to another reference as an alias.
+		For example-
+			addition = add
+			addition(10, 20)				#	Result-	30
+
+		Functions can also be created within other functions. Their scope will be limited.
+		For example-
+			def func1() :
+				def func2() :			# Definition
+					print("func2")
+				print("func1")		# Call
+
+			func1()								#	Result-	"func2" "func1"
+
+		Functions can return multiple values in the form of a tuple.
+		For example-
+			def addAndSub(x, y)
+				return x + y, x - y
+				
+			a, s = addAndSub(10, 20)	#	Result-	a = 30;	s = -10
+			
+		Functions can take variable number of arguments if required-
+		For example-
+			def addAll(val1, *values) :
+				result = val1
+				for x in values :
+					result += x
+				return result
+				
+			addAll(1, 2, 3, 4, 5)			# Result-		15
+			addAll("A", "B", "C")			# Result-		"ABC"
+		
+		Functions cal also take keyword arguments and default values.
+		For example-
+			def makeSentence(*words, symbol = " ") :
+				return symbol.join(words)
+				
+			makeSentence("I", "am", "a", "programmer", symbol = "_")
+			#	Result-	"I_am_a_programmer"
+			
+			makeSentence("I", "am", "a", "programmer")
+			#	Result-	"I am a programmer"
+
+18. File handling-
+		The following built-in function can open files-
+			open('file path', 'mode')
+			
+			Modes include-
+				Mode____|_____________________Description__________________________
+					"r"		|	Read text	(default)
+					"w"		|	Overwrite text	(creates file if not found)
+					"a"		|	Append text
+					"r+"		|	Read + Write text	(doesn't overwrite)
+					"w+"	|	Read + Overwrite text
+					
+			Add a 'b' to any of the above modes to work with binary files.
+			For example-
+				"rb"	-	Read binary
+			
+		For example-
+			file1 = open("someFile.txt", "w")
+			
+		Can use the following methods from the file object-
+			.write(values)			-				Write string or bytes to file
+			.read()							-				Read entire file
+			.readline()
+			.flush()
+			.close()
+
+		Can also use within for loop to read line-by-line-
+		For example-
+			for line in open("someFile.txt") :				#	File will be closed automatically.
+				print(line)
+		
+		The following modules are useful for file handling-
+			(a)	Pickle module-
+				This module makes it easier to read-write Python objects in binary files.
+				
+				For example-
+					import pickle as pkl
+					
+					dict1 = {"Name" : "Python", "Age" : 27}
+					file1 = open("someFile.pkl", "wb")
+					pkl.dump(dict1, file1)
+					file1.close()
+					
+					file2 = open("someFile.pkl", "rb")
+					dict2 = pkl.load(file2)
+					file2.close()
+					print(dict2)
+								
+			(b)	JSON module-
+				JavaScript Object Notation files are very useful for storing and transmitting data.
+				They are structured like a dictionary. (Similar to XML)
+				
+				For example-
+					import json
+					
+					dict1 = {"Name" : "Python", "Age" : 27}
+					file1 = open("someFile.json", "w")
+					dict1AsString = json.dumps(dict1)
+					file1.write(dict1AsString)
+					file1.close()
+					
+					file2 = open("someFile.json", "r")
+					dict2 = json.loads(file2.read())
+					file2.close()
+					print(dict2)
+					
+			(c)	CSV module-
+				Comma Separated Values files are an easy way to store tables in files.
+				
+				For example-
+					import csv
+					
+					table1 = [[1, 2, 3], [10, 20, 30], [100, 200, 300]]
+					file1 = open("someFile.csv", "w", newline="")
+					writer = csv.writer(file1)
+					writer.writerows(table1)
+					file1.close()
+					
+					table2 = []
+					file2 = open("someFile.csv", "r")
+					reader = csv.reader(file2)
+					for row in reader :
+						table2.append(row)
+					file2.close()
+			
+19. Misc topics-
+		(a)	Imports-
+			import <module> as <alias>
+			from <module> import <stuff>
+		
+		(b)	Console input-
+			input('Prompt')
+			
+			For example-
+				x = input("Enter a number: ")
+		
+		(c)	Help-
+			help(<object>)
+			dir(<object>)
+			
+			For example-
+				help(str)
