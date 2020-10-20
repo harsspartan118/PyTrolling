@@ -1,0 +1,137 @@
+1. About Numpy-
+		Numpy provides a data structure useful for scientific computing.
+		It also provides several functions useful for statistics and Machine Learning.
+
+		To install numpy, enter the following in cmd / terminal / power shell-
+			python -m pip install numpy
+
+		To import numpy, enter the following line in python shell / source code file-
+			import numpy as np
+
+2. Numpy array-
+		It is a multi-dimensional array. It is also called ndarray (n-dimensional array).
+		It stores homogeneous data. I.e. all data in an array must be of the same type.
+		The array is static. I.e. its size is fixed at initialization.
+		For example-
+			arr1 = np.array([1, 2, 3])
+			arr2 = np.array(range(1, 5))
+			arr3 = np.arange(1, 5)
+			arr4 = np.empty(5)					#	An array with 5 garbage values.
+
+		(a)	Array operations-
+			All arithmetic and comparison operators work element-wise.
+			For example-
+				arr2 + arr3								#	array([2, 4, 6, 8])
+				arr2 == arr3							#	array([True, True, True, True])
+
+			Logical operations do not work element-wise directly.
+			To perform element-wise logical operations, use the following-
+				np.logical_and(arr1, arr2)
+				np.logical_or(arr1, arr2)
+				np.logical_xor(arr1, arr2)
+				np.logical_not(arr1)
+
+				For example-
+					arr1 = np.array([True, False])
+					np.logical_not(arr1)			# array([False, True])
+
+		(b)	Array dimensional attributes-
+			The following attributes and methods are useful for working with dimensions-
+
+				(i)		shape						-	Shape as a tuple
+				(ii)	size							-	Number of elements
+				(iii)	T								-	Transpose
+
+				(iv)	ravel()						-	Convert to single dimention
+					For example-
+							arr1 = np.array([[1, 2], [3, 4]])
+							arr1.ravel()					#	Returns array([1, 2, 3, 4])
+
+				(v)	reshape(*dims)		-	Change dimensions
+					For example-
+							arr1 = np.array([[1, 2, 3, 4]])
+							arr1.reshape(2, 2)					#	Returns array([1, 2], [3, 4])
+
+		(c)	Array indexing-
+			ndarrays can have several dimensions, therefore,
+			Indexing is done on a per dimensional basis separated by commas.
+			For example-
+				arr1 = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])	# 3 dimensions
+				arr1[0, 0, 1]							#	Returns 2
+				arr1[0, 1, 0]							#	Returns 4
+				arr1[1, 0, 0]							#	Returns 7
+
+			Ellipses (...) can be used to include the whole dimension.
+				arr1[0, 0, ...]							#	Returns 1, 2, 3
+				arr1[0, ..., 1]							#	Returns 2, 5
+				arr1[..., 0, 0]							#	Returns 1, 7
+
+			A list can be used to select specific elements.
+			For example-
+				arr1 = np.array([10, 20, 30, 40, 50])
+				arr1[[0, 2, 4]]							# Returns 10, 30, 50
+
+			A condition can be used to filter elements from the array.
+			For example-
+				arr1 = np.array([1, 2, 3, 4, 5, 6])
+				arr1[arr1 % 3 == 0]				#	Returns 3, 6
+
+			Slicing follows the same rules as those used with indexing.
+			For example-
+				arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+				arr1[0, 0 : 2]						#	array([1, 2])
+				arr1[..., 0 : 2]						#	array([[1, 2], [4, 5]])
+
+		(d)	Assigning and adding new values to array-
+			Existing values can be changed by directly indexing.
+			For example-
+				arr1 = np.array([1, 2, 3])
+				arr1[0] = 10
+
+			New values cannot be appended directly. But a new array can be appended.
+			For example-
+				arr1 = np.array([1, 2, 3])
+				arr2 = np.array([4, 5, 6])
+				np.append(arr1, arr2)		#	array([1, 2, 3, 4, 5, 6])
+
+		(e)	Combining and splitting arrays-
+			The following functions can be used to stack multiple arrays into a single array.
+
+				(i)		np.vstack(tuple of arrays)		-	Vertically stack arrays.
+					For example-
+							arr1 = np.array([1, 2, 3])
+							arr2 = np.array([4, 5, 6])
+							np.vstack((arr1, arr2))
+
+				(ii)	np.hstack(tuple of arrays)		-	Horizontally stack arrays.
+
+			The following functions can be used to split an array into multiple arrays.
+
+				(i)		np.vsplit(array, number of parts)	-	Returns list of array parts.
+					For example-
+							arr1 = np.array([[1, 2], [3, 4]])
+							np.vsplit(arr1, 2)
+
+				(ii)	np.hsplit(array, number of parts)	-	Horizontal split.
+
+		(f)	Other methods and functions in numpy-
+
+				(i)		sum()
+				(ii)	min(),	max()
+					For example-
+							arr1 = np.array([1, 2, 3])
+							arr1.sum()				#	Returns 6
+
+				(iv)	np.argmin(array),		np.argmax(array)		-		Return index of min or max.
+					For example-
+							arr1 = np.array([1, 2, 3])
+							np.argmin(arr1)				#	Returns 0
+
+				(v)	np.mean(array),		np.median(array)
+
+				(vi)	np.unique(array, return_counts=False)
+							Returns unique values.
+							Set return_counts = True to get frequencies of elements.
+					For example-
+							arr1 = np.array([1, 1, 1, 2, 2, 3])
+							np.unique(arr1, return_counts=True)
