@@ -1,0 +1,73 @@
+# Pandas-
+	Data structures for statistical analysis.
+	Not homogeneous. Non-unique indexes.
+	NaN for missing values.
+	
+	Series-
+		One dimentional ndarray with custom index.
+			pd.Series([10,'A',30], index=[1,2,3])
+		
+		Uses dictionary keys as index.
+			pd.Series({'A':10, 'B':20})
+		
+		Arithemetic works element wise.
+		All element wise operations are index aligned.
+			ser1 = pd.Series({1:10, 2:20, 3:30})
+			ser2 = pd.Series({1:100, 2:200, 4:400})
+			ser1+ser2		#	Doesn't tread NaN as 0. Fails arithemetic.
+		
+		Slicing, filtering and indexing same as ndarray.
+		Can set new values by directly indexing-
+			ser[5] = 50
+		
+		Series attributes-
+			size
+			index- Returns range.
+			
+			.median(), ...
+			.unique()
+			.value_counts()- Frequencies.
+			
+	DataFrame-
+		2D table. Dictionary of series.
+		
+		DataFrame(dictionary of series)-
+			Keys as columns.
+			df = pd.DataFrame({'col1' : ser1, 'col2' : ser2})
+			
+		DataFrame(list of tuples)-
+			Tuples represent rows.
+			pd.DataFrame([(1,2,3), (10,20,30)])
+			
+		Column selection-
+			Indexing directly-	df['col1']
+			Multi indexing-		df[['col1', 'col2']]
+			
+		Row selection-
+			Index through index label-	df.loc[1]
+			Index through position-		df.iloc[0]
+			Slicing directly-						df[0:2]
+			
+		Select both simultaneously-
+			By labels-		df.loc[1, 'col1']
+			By position-	df.iloc[0, 0]
+			
+		Access columns as attributes-
+			df.col1
+			
+		DataFrame attributes-
+			size, shape
+			index, columns
+			
+			.info()
+			.describe()- Stats
+			.head()
+			.assign(colName = Series)- Set / Add a column
+				df = df.assign(col4=...)
+			.pop(colName)- In place delete.
+			.sort_values(by, ascending)- Sort by column.
+					df.sort_values('col1', ascending=True)
+					
+			.to_csv(fileName)
+			
+		read_csv(fileName)
